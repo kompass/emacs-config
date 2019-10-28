@@ -57,6 +57,12 @@
 (use-package magit
   :bind ("C-x g" . magit-status))
 
+(use-package magithub
+  :after magit
+  :config
+  (magithub-feature-autoinject t)
+  (setq magithub-clone-default-directory "~/Workspace"))
+
 (use-package evil)
 (require 'evil)
 (evil-mode 1)
