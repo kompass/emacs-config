@@ -57,9 +57,7 @@
 (use-package magit
   :bind ("C-x g" . magit-status))
 
-(add-to-list 'load-path "~/.emacs.d/undo-tree")
-(add-to-list 'load-path "~/.emacs.d/goto-chg")
-(add-to-list 'load-path "~/.emacs.d/evil")
+(use-package evil)
 (require 'evil)
 (evil-mode 1)
 
@@ -70,7 +68,7 @@
 (setq evil-replace-state-cursor '("red" bar))
 (setq evil-operator-state-cursor '("red" hollow))
 
-(add-to-list 'load-path "~/.emacs.d/evil-leader")
+(use-package evil-leader)
 (require 'evil-leader)
 (setq evil-leader/in-all-states 1)
 (global-evil-leader-mode)
