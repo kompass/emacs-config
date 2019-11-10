@@ -113,3 +113,22 @@
 ;; use spaces instead of tabs
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+
+(setq backup-by-copying t
+      create-lockfiles nil
+      backup-directory-alist '(("." . "~/.cache/emacs-backups"))
+      auto-save-file-name-transforms '((".*" "~/.cache/emacs-backups" t)))
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(defun font-installed-p (font-name)
+    "Check if font with FONT-NAME is available."
+    (if (find-font (font-spec :name font-name))
+        t
+      nil))
+
+(use-package all-the-icons
+  :config
+  (when (not (font-installed-p "all-the-icons"))
+    (all-the-icons-install-fonts)))
+
